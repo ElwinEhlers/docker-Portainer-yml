@@ -27,7 +27,7 @@ docker volume create portainer_data<br>
 #Create a network 'proxy' to make all available in the net.<br>
 sudo docker network create proxy <br>
 docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest<br>
-id
+id<br>
 show your ID: uid=1000(docker) gid=1000(docker) groups=1000(docker),27(sudo),100(users)
 
 
