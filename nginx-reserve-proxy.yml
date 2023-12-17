@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+ portainer:
+  container_name: nginx-reserve-proxy
+  hostname: nginx-reserve-proxy
+  image: 'jc21/nginx-proxy-manager:latest'
+  restart: unless-stopped
+  networks:
+   - proxy
+  ports:
+    - "80:80"
+    - "81:81"
+    - "443:443"
+  volumes:
+    - /home/docker/npm/data:/data
+    - /home/docker/npm/letsencrypt:/etc/letsencrypt
+  environment:
+   - TZ=Europa/Berlin
+networks:
+  proxy:
+   external: true
