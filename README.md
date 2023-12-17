@@ -1,7 +1,5 @@
-# welcome ahoy Cloud Systems Bremerhaven
-Thank you for been here.<br>
-
-How to run your own Homelab via Portainer on a Debian machine.<br>
+# How to run your own Homelab via Portainer on a Debian machine.
+<br>
 When you have installed a new Debian and you will run your web applications via Docker follow the next steps.<br>
 The web applications can be setup via Portainer.<br>
 For the setup of the web applications I will share my X.yml files with you. <br>Those can be used to create a stack, a comfortable way to apply your Docker applications under Portainer.<p>
