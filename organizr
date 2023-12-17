@@ -1,0 +1,20 @@
+version: "3.8"
+services:
+  organizr:
+    image: organizr/organizr:latest
+    container_name: organizr
+    hostname: organizr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Berlin
+    volumes:
+      - /home/docker/organizr:/config
+    ports:
+      - 9983:80
+    restart: unless-stopped
+    networks:
+     - proxy
+networks:
+  proxy:
+    external: true
