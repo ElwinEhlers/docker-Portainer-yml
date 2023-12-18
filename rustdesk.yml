@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  hbbs:
+    container_name: rustdesk-hbbs
+    hostname: rustdesk-hbbs
+    image: rustdesk/rustdesk-server:latest
+    restart: unless-stopped
+    networks:
+      - proxy
+    ports:
+      - "21115:21115"
+      - "21116:21116"
+      - "21116:21116/udp"
+      - "21118:21118"
+    depends_on:
+      - hbbr
+    command: hbbs -r rustdesk.domaindemo.net:21117 -k _
+    volumes:
+      - /home/docker/rustdesk:/root
+    environment:
+      - TZ=Europe/Berlin
+      
+  hbbr:
+    container_name: rustdesk-hbbr
+    hostname: rustdesk-hbbr
+    image: rustdesk/rustdesk-server:latest
+    restart: unless-stopped
+    networks:
+      - proxy
+    ports:
+      - "21117:21117"
+      - "21119:21119"
+    command: hbbr -k _
+    volumes:
+      - /home/docker/rustdesk:/root
+    environment:
+      - TZ=Europe/Berlin
+
+networks:
+  proxy:
+    external: true
