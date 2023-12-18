@@ -1,4 +1,5 @@
-# How to run your own Homelab via Portainer on a Debian machine.
+# How to run your own Homelab via Portainer on a Debian machine.<br>
+# yml files for a Homelab
 <br>
 When you have installed a new Debian and you will run your web applications via Docker follow the next steps.<br>
 The web applications can be setup via Portainer.<br>
@@ -6,7 +7,7 @@ For the setup of the web applications I will share my X.yml files with you. <br>
 
 apt-get update && apt-get upgrade<br>
 adduser docker<br>
-visudov
+visudo
 User privilege specification add like here the user docker<br>
 root    ALL=(ALL:ALL) ALL<br>
 docker  ALL=(ALL:ALL) ALL<br>
