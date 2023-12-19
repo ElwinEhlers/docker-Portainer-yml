@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  vaultwarden:
+    container_name: vaultwarden
+    hostname: vaultwarden
+    image: vaultwarden/server:latest
+    restart: unless-stopped
+    networks:
+      - proxy
+    ports:
+      - 8080:80
+    volumes:
+      - /home/docker/vaultwarden/data:/data
+
+    environment:
+      - TZ=Europa/Berlin
+      - WEBSOCKET_ENABLED=true
+      - SIGNUPS_ALLOWED=false
+      - ADMIN_TOKEN=yourlongtoken                     # needs to be adjusted
+      - DOMAIN=https://vaultwarden.demodomain4.net    # needs to be adjusted
+      - SIGNUPS_VERIFY=true
+
+networks:
+  proxy:
+    external: true
