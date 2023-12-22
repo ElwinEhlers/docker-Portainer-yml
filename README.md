@@ -11,27 +11,44 @@ apt-get update && apt-get upgrade
 ```html
 adduser docker
 ```
-visudo
 User privilege specification add like here the user docker<br>
+```html
+visudo
+```
 root    ALL=(ALL:ALL) ALL<br>
 docker  ALL=(ALL:ALL) ALL<br>
-
-usermod -aG sudo docker<br>
+```html
+usermod -aG sudo docker
+```
+```html
 apt install wget curl htop sudo git mc<br>
-
+```
 Install now Docker with the install script from https://github.com/docker/docker-install. In this way you get also the latest version of compose.<br>
+```html
 curl -fsSL https://get.docker.com -o get-docker.sh<br>
 sh get-docker.sh<br>
-
-su docker<br>
-cd /home/docker<br>
+```
+```html
+su docker
+```
+```html
+cd /home/docker
+```
 Visit here also to see the next steps. https://docs.portainer.io/start/install-ce/server/docker/linux<br>
-docker volume create portainer_data<br>
-#Create a network 'proxy' to make all available in the net.<br>
-sudo docker network create proxy <br>
-docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest<br>
-id<br>
-show your ID: uid=1000(docker) gid=1000(docker) groups=1000(docker),27(sudo),100(users)
+```html
+docker volume create portainer_data
+```
+Create a network 'proxy' to make all available in the net.<br>
+```html
+sudo docker network create proxy
+```
+```html
+docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest
+```
+```html
+id
+```
+show your ID: uid=1000(docker) gid=1000(docker) groups=1000(docker),27(sudo),100(users)<br>
 
 
 Now it is time for the nginx-reserve-proxy to grab the upcoming services and here you will use the first data.yml<P>
