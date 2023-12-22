@@ -5,8 +5,12 @@ When you have installed a new Debian and you will run your web applications via 
 The web applications can be setup via Portainer.<br>
 For the setup of the web applications I will share my X.yml files with you. <br>Those can be used to create a stack, a comfortable way to apply your Docker applications under Portainer.<p>
 
-apt-get update && apt-get upgrade<br>
-adduser docker<br>
+```html
+apt-get update && apt-get upgrade
+```
+```html
+adduser docker
+```
 visudo
 User privilege specification add like here the user docker<br>
 root    ALL=(ALL:ALL) ALL<br>
