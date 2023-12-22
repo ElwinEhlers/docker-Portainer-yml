@@ -11,7 +11,6 @@ visudo
 User privilege specification add like here the user docker<br>
 root    ALL=(ALL:ALL) ALL<br>
 docker  ALL=(ALL:ALL) ALL<br>
-[![Copy to Clipboard](https://example.com/copy-icon.png)](javascript:void(0))
 
 usermod -aG sudo docker<br>
 apt install wget curl htop sudo git mc<br>
