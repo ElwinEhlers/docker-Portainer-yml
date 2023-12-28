@@ -21,11 +21,11 @@ docker  ALL=(ALL:ALL) ALL<br>
 usermod -aG sudo docker
 ```
 ```html
-apt install wget curl htop sudo git mc<br>
+apt install wget curl htop sudo git mc
 ```
-Install now Docker with the install script from https://github.com/docker/docker-install. In this way you get also the latest version of compose.<br>
+Install now Docker with the install script from https://github.com/docker/docker-install. In this way you get also the latest version of compose. <br>
 ```html
-curl -fsSL https://get.docker.com -o get-docker.sh<br>
+curl -fsSL https://get.docker.com -o get-docker.sh
 sh get-docker.sh<br>
 ```
 ```html
@@ -34,7 +34,7 @@ su docker
 ```html
 cd /home/docker
 ```
-Visit here also to see the next steps. https://docs.portainer.io/start/install-ce/server/docker/linux<br>
+Visit here also to see the next steps. https://docs.portainer.io/start/install-ce/server/docker/linux <br>
 ```html
 docker volume create portainer_data
 ```
