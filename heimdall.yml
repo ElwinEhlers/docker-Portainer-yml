@@ -1,0 +1,24 @@
+version: "3.7"
+services:
+  heimdall:
+    image: lscr.io/linuxserver/heimdall:latest
+    container_name: heimdall
+    hostname: heimdall
+    restart: unless-stopped
+    networks:
+       - proxy
+    ports:
+      - 580:80
+      - 5443:443
+    volumes:
+      - /home/docker/heimdall:/config
+    environment:
+      - TZ=Europa/Berlin
+      - PUID=1002
+      - PGID=1002
+      - FILE__PASSWORD=/run/secrets/mysecretpassword
+      
+
+networks:
+  proxy:
+    external: true
