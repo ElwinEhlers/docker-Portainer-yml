@@ -1,0 +1,19 @@
+version: "3.7"
+services:
+  homepage:
+    image: ghcr.io/benphelps/homepage:latest
+    container_name: homepage
+    ports:
+      - 3000:3000
+    networks:
+      - proxy
+    volumes:
+      - /home/docker/homepage:/app/config # Make sure your local config directory exists
+      #- /var/run/docker.sock:/var/run/docker.sock # (optional) For docker integrations, see alternative methods
+    environment:
+      PUID: 1002
+      PGID: 1002
+
+networks:
+  proxy:
+    external: true
