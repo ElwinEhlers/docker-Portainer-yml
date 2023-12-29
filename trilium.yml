@@ -1,0 +1,15 @@
+version: '3.7'
+services:
+  trilium:
+    image: zadam/trilium:latest
+    restart: unless-stopped
+    environment:
+      - TRILIUM_DATA_DIR=/home/node/trilium-data
+    ports:
+      - "8082:8080"
+    volumes:
+      - /home/docker/trilium-data:/home/node/trilium-data
+
+networks:
+  proxy:
+    external: true
