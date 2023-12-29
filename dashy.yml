@@ -1,0 +1,24 @@
+version: "3.7"
+services:
+  dashy:
+    image: lissy93/dashy
+    container_name: Dashy
+    hostname: Dashy
+    restart: unless-stopped
+    networks:
+       - proxy
+    ports:
+      - "4000:80"
+    volumes:
+      - /home/docker/dashy/conf.yml:/app/public/conf.yml
+    environment:
+      - TZ=Europa/Berlin
+      - NODE_ENV=production
+      - UID=1002
+      - GID=1002
+
+
+
+networks:
+  proxy:
+    external: true
