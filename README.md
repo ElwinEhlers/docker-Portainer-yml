@@ -9,6 +9,9 @@ For the setup of the web applications I will share my X.yml files with you. <br>
 apt-get update && apt-get upgrade
 ```
 ```html
+apt install sudo wget curl htop sudo git mc
+```
+```html
 adduser docker
 ```
 User privilege specification add like here the user docker<br>
@@ -19,9 +22,6 @@ root    ALL=(ALL:ALL) ALL<br>
 docker  ALL=(ALL:ALL) ALL<br>
 ```html
 usermod -aG sudo docker
-```
-```html
-apt install wget curl htop sudo git mc
 ```
 Install now Docker with the install script from https://github.com/docker/docker-install. In this way you get also the latest version of compose. <br>
 ```html
