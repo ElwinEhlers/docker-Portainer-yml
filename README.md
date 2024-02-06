@@ -23,13 +23,13 @@ docker  ALL=(ALL:ALL) ALL<br>
 ```html
 usermod -aG sudo docker
 ```
+```html
+su docker
+```
 Install now Docker with the install script from https://github.com/docker/docker-install. In this way you get also the latest version of compose. <br>
 ```html
 curl -fsSL https://get.docker.com -o get-docker.sh
 sh get-docker.sh
-```
-```html
-su docker
 ```
 ```html
 cd /home/docker
