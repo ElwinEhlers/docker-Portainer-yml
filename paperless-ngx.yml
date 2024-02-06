@@ -1,4 +1,4 @@
-version: "3.4"
+version: "3.8"
 services:
 
   broker:
@@ -38,9 +38,9 @@ services:
     environment:
       PAPERLESS_REDIS: redis://broker:6379
       PAPERLESS_DBHOST: db
-      PAPERLESS_SECRET_KEY: safeHB1
+      PAPERLESS_SECRET_KEY: safePW
       PAPERLESS_ADMIN_USER: admin
-      PAPERLESS_ADMIN_PASSWORD: HomeHBneu1
+      PAPERLESS_ADMIN_PASSWORD: safeadminPW
       PAPERLESS_OCR_LANGUAGE: deu+eng
       PAPERLESS_URL: https://paperless.sample.ipv64.net
       PAPERLESS_ALLOWED_HOSTS: http://localhost:8000
