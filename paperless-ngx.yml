@@ -2,13 +2,13 @@ version: "3.4"
 services:
 
   broker:
-    image: docker.io/library/redis:7
+    image: docker.io/library/redis
     restart: unless-stopped
     volumes:
       - redisdata:/data
 
   db:
-    image: docker.io/library/postgres:15
+    image: docker.io/library/postgres
     restart: unless-stopped
     volumes:
       - pgdata:/var/lib/postgresql/data
@@ -42,7 +42,7 @@ services:
       PAPERLESS_ADMIN_USER: admin
       PAPERLESS_ADMIN_PASSWORD: HomeHBneu1
       PAPERLESS_OCR_LANGUAGE: deu+eng
-      PAPERLESS_URL: https://paperless.bhv.ipv64.net
+      PAPERLESS_URL: https://paperless.sample.ipv64.net
       PAPERLESS_ALLOWED_HOSTS: http://localhost:8000
       PAPERLESS_CORS_ALLOWED_HOSTS: http://localhost:8000
       PAPERLESS_TIME_ZONE: Europe/Berlin
