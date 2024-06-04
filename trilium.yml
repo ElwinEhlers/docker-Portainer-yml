@@ -1,8 +1,12 @@
 version: '3.7'
 services:
   trilium:
+    container_name: trilium
+    hostname: trilium
     image: zadam/trilium:latest
     restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
     environment:
       - TRILIUM_DATA_DIR=/home/node/trilium-data
     ports:
