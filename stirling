@@ -5,8 +5,8 @@ services:
     ports:
       - '8085:8080'
     volumes:
-      - ./trainingData:/home/docker/froodle/tessdata #Required for extra OCR languages
-      - ./extraConfigs:/home/docker/froodle/configs
+      - /home/docker/froodle/tessdata:/usr/share/tessdata #Required for extra OCR languages
+      - /home/docker/froodle/configs:/configs
 #      - ./customFiles:/customFiles/
 #      - ./logs:/logs/
     environment:
