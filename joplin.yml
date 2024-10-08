@@ -1,0 +1,32 @@
+version: '3'
+services:
+    db:
+        restart: unless-stopped
+        image: postgres:latest
+        ports:
+            - "5432:5432"
+        volumes:
+            - /home/docker/joplin-data:/var/lib/postgresql/data
+        environment:
+            - POSTGRES_PASSWORD=yourdbpw
+            - POSTGRES_USER=joplin
+            - POSTGRES_DB=joplin
+    app:
+        environment:
+            - APP_BASE_URL=https://joplin.yourdomain.net
+            - APP_PORT=22300
+            - POSTGRES_PASSWORD=yourdbpw
+            - POSTGRES_DATABASE=joplin
+            - POSTGRES_USER=joplin
+            - POSTGRES_PORT=5432
+            - POSTGRES_HOST=db
+            - DB_CLIENT=pg
+        restart: unless-stopped
+        image: joplin/server:latest
+        ports:
+            - "22300:22300"
+        depends_on:
+            - db
+networks:
+  proxy:
+    external: true
