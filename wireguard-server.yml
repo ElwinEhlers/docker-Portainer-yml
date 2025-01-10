@@ -37,3 +37,6 @@ services:
     volumes:
       - /home/docker/wireguard/db:/app/db
       - /home/docker/wireguard/config:/etc/wireguard
+networks:
+  proxy:
+    external: true
