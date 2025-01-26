@@ -109,8 +109,8 @@ services:
       RAILS_ENV: development
       REDIS_URL: redis://dawarich_redis:6379/0
       DATABASE_HOST: dawarich_db
-      DATABASE_USERNAME: Postmeister23
-      DATABASE_PASSWORD: Postmeister23bhv
+      DATABASE_USERNAME: dbuser
+      DATABASE_PASSWORD: dbpw
       DATABASE_NAME: dawarich_development
       APPLICATION_HOSTS: localhost
       BACKGROUND_PROCESSING_CONCURRENCY: 10
