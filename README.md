@@ -49,6 +49,12 @@ docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /va
 id
 ```
 show your ID: uid=1000(docker) gid=1000(docker) groups=1000(docker),27(sudo),100(users)<br>
-
+When you open your example.com:9443 you get the info to restart Portainer.
+```html
+docker stop portainer
+```
+```html
+docker start portainer
+```
 
 Now it is time for the nginx-reserve-proxy to grab the upcoming services and here you will use the first data.yml<P>
