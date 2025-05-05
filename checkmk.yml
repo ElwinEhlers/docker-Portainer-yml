@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  checkmk:
+    image: checkmk/check-mk-raw:2.3.0-latest
+    container_name: monitoring
+    ports:
+      - "8080:5000"
+      - "8002:8002"
+    tmpfs:
+      - /opt/omd/sites/cmk/tmp:uid=1000,gid=1000
+    volumes:
+      - monitoring:/omd/sites
+      - /etc/localtime:/etc/localtime:ro
+    restart: always
+
+volumes:
+  monitoring:
+networks:
+  proxy:
+    external: true
