@@ -1,0 +1,20 @@
+services:
+  n8n:
+    image: docker.n8n.io/n8nio/n8n
+    restart: always
+    ports:
+      - "5678:5678"
+    environment:
+      - N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true
+      - N8N_HOST=n8n.bhv.ipv64.net
+      - N8N_PORT=5678
+      - N8N_PROTOCOL=https
+      - N8N_RUNNERS_ENABLED=true
+      - NODE_ENV=production
+
+      - WEBHOOK_URL=https://n8n.bhv.ipv64.net/
+      - GENERIC_TIMEZONE=Europe/Berlin
+
+    volumes:
+      - /home/docker/n8n/:/home/node/.n8n
+      - /home/docker/n8n/local-files:/files
