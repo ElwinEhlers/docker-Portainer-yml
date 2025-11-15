@@ -18,3 +18,10 @@ services:
     volumes:
       - /home/docker/n8n/:/home/node/.n8n
       - /home/docker/n8n/local-files:/files
+
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true
