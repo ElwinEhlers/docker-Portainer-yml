@@ -1,9 +1,42 @@
-# How to run your own Homelab via Portainer on a Debian machine.<br>
-# yml files for a Homelab
-<br>
-When you have installed a new Debian and you will run your web applications via Docker follow the next steps.<br>
-The web applications can be setup via Portainer.<br>
-For the setup of the web applications I will share my X.yml files with you. <br>Those can be used to create a stack, a comfortable way to apply your Docker applications under Portainer.<p>
+# Debian Homelab with Docker and Portainer
+
+This repository documents a practical setup for running a self-hosted homelab
+on a Debian server using Docker and Portainer.
+
+It is intended as a technical reference and collection of example
+Docker Compose (YAML) files for common self-hosted applications.
+
+## Scope
+
+- Debian server preparation
+- Docker & Docker Compose installation
+- Portainer installation and usage
+- Example stacks for self-hosted services
+
+This is **not** a one-click solution. Basic Linux knowledge is required.
+
+---
+
+## Target audience
+
+- Administrators
+- Technically experienced users
+- Self-hosting enthusiasts
+
+---
+
+## System requirements
+
+- Fresh Debian installation (recommended: Debian stable)
+- Root access
+- Internet connection
+
+---
+
+## Initial system preparation
+
+Update the system:
+
 
 ```html
 apt-get update && apt-get upgrade
@@ -49,7 +82,7 @@ docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /va
 id
 ```
 show your ID: uid=1000(docker) gid=1000(docker) groups=1000(docker),27(sudo),100(users)<br>
-When you open your example.com:9443 you get the info to restart Portainer.
+When you open your https://example.com:9443 you get the info to restart Portainer.
 ```html
 docker stop portainer
 ```
