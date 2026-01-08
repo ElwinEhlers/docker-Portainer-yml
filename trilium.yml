@@ -3,7 +3,7 @@ services:
   trilium:
     container_name: trilium
     hostname: trilium
-    image: zadam/trilium:latest
+    image: triliumnext/trilium:latest
     restart: unless-stopped
     security_opt:
       - no-new-privileges:true
