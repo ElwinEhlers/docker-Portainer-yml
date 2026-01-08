@@ -90,4 +90,5 @@ docker stop portainer
 docker start portainer
 ```
 
-Now it is time for the nginx-reserve-proxy to grab the upcoming services and here you will use the first data.yml<P>
+<P>At this point, the reverse proxy is deployed as a stack via Portainer to route incoming requests to upcoming services.
+The first data.yml file is used to create the initial stack.</P>
