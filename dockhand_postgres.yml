@@ -3,10 +3,8 @@ services:
     image: postgres:16-alpine
     container_name: dockhand_postgres
     restart: unless-stopped
-    environment:                                     M
-    container_name: dockhand_postgres
-    restart: unless-stopped
     environment:
+      # Wir nutzen 'postgres' als User
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: yourPW
       POSTGRES_DB: dockhand
@@ -20,10 +18,11 @@ services:
     depends_on:
       - postgres
     environment:
+      # Hier passen wir die URL an den 'postgres' User an
       DATABASE_URL: postgres://postgres:yourPW@postgres:5432/dockhand
       DOCKHAND_STACK_PATH: /app/data/stacks
     ports:
-      - "3000:3000"
+      - "9001:3000"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /home/docker/dockerhand:/app/data
