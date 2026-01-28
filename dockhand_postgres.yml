@@ -1,0 +1,29 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: dockhand_postgres
+    restart: unless-stopped
+    environment:                                     M
+    container_name: dockhand_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: yourPW
+      POSTGRES_DB: dockhand
+    volumes:
+      - /home/docker/postgres:/var/lib/postgresql/data
+
+  dockhand:
+    image: fnsys/dockhand:latest
+    container_name: dockhand_app
+    restart: unless-stopped
+    depends_on:
+      - postgres
+    environment:
+      DATABASE_URL: postgres://postgres:yourPW@postgres:5432/dockhand
+      DOCKHAND_STACK_PATH: /app/data/stacks
+    ports:
+      - "3000:3000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /home/docker/dockerhand:/app/data
