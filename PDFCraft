@@ -1,0 +1,7 @@
+services:
+  pdfcraft:
+    image: ghcr.io/pdfcrafttool/pdfcraft:latest
+    container_name: pdfcraft
+    restart: unless-stopped
+    ports:
+      - "8080:80"
