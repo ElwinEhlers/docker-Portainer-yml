@@ -1,41 +1,40 @@
-# Debian Homelab with Docker and Portainer
+# Debian-Docker-Host mit Portainer
 
-This repository documents a practical setup for running a self-hosted homelab
-on a Debian server using Docker and Portainer.
+Dieses Repository dokumentiert die Einrichtung eines Debian-Servers als Docker-Host, verwaltet mit Portainer.
 
-It is intended as a technical reference and collection of example
-Docker Compose (YAML) files for common self-hosted applications.
+Es dient als technische Referenz und enthält einsatzbereite Docker-Compose-Dateien (YAML) für gängige
+selbst gehostete Anwendungen.
 
-## Scope
+## Umfang
 
-- Debian server preparation
-- Docker & Docker Compose installation
-- Portainer installation and usage
-- Example stacks for self-hosted services
+- Vorbereitung des Debian-Servers
+- Installation von Docker und Docker Compose
+- Installation und Nutzung von Portainer
+- Beispiel-Stacks für selbst gehostete Dienste
 
-This is **not** a one-click solution. Basic Linux knowledge is required.
-
----
-
-## Target audience
-
-- Administrators
-- Technically experienced users
-- Self-hosting enthusiasts
+Dies ist **keine** Ein-Klick-Lösung. Grundkenntnisse in Linux werden vorausgesetzt.
 
 ---
 
-## System requirements
+## Zielgruppe
 
-- Fresh Debian installation (recommended: Debian stable)
-- Root access
-- Internet connection
+- Administratoren
+- Technisch versierte Anwender
+- Betreiber selbst gehosteter Dienste
 
 ---
 
-## Initial system preparation
+## Voraussetzungen
 
-Update the system:
+- Frische Debian-Installation (empfohlen: aktuelles Debian stable)
+- Root-Zugriff
+- Internetverbindung
+
+---
+
+## Vorbereitung des Systems
+
+System aktualisieren:
 
 
 ```html
@@ -47,19 +46,22 @@ apt install sudo wget curl htop sudo git mc
 ```html
 adduser docker
 ```
-User privilege specification add like here the user docker<br>
+Den Benutzer `docker` in den sudo-Einstellungen eintragen:
 ```html
 visudo
 ```
-root    ALL=(ALL:ALL) ALL<br>
-docker  ALL=(ALL:ALL) ALL<br>
+```text
+root    ALL=(ALL:ALL) ALL
+docker  ALL=(ALL:ALL) ALL
+```
 ```html
 usermod -aG sudo docker
 ```
 ```html
 su docker
 ```
-Install now Docker with the install script from https://github.com/docker/docker-install. In this way you get also the latest version of compose. <br>
+Docker mit dem offiziellen Installationsskript (https://github.com/docker/docker-install) installieren. So erhält man auch
+die aktuelle Version von Docker Compose.
 ```html
 sudo curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
@@ -67,11 +69,12 @@ sudo sh get-docker.sh
 ```html
 cd /home/docker
 ```
-Visit here also to see the next steps. https://docs.portainer.io/start/install-ce/server/docker/linux <br>
+Die weiteren Schritte zu Portainer stehen auch in der offiziellen Anleitung:
+https://docs.portainer.io/start/install-ce/server/docker/linux
 ```html
 docker volume create portainer_data
 ```
-Create a network 'proxy' to make all available in the net.<br>
+Ein Netzwerk `proxy` anlegen, über das alle Dienste erreichbar sind:
 ```html
 sudo docker network create proxy
 ```
@@ -81,8 +84,9 @@ docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /va
 ```html
 id
 ```
-show your ID: uid=1000(docker) gid=1000(docker) groups=1000(docker),27(sudo),100(users)<br>
-When you open your https://example.com:9443 you get the info to restart Portainer.
+Zeigt die eigene ID, z. B.: `uid=1000(docker) gid=1000(docker) groups=1000(docker),27(sudo),100(users)`
+
+Beim ersten Aufruf von https://example.com:9443 fordert Portainer gegebenenfalls einen Neustart:
 ```html
 docker stop portainer
 ```
@@ -90,5 +94,5 @@ docker stop portainer
 docker start portainer
 ```
 
-<P>At this point, the reverse proxy is deployed as a stack via Portainer to route incoming requests to upcoming services.
-The first data.yml file is used to create the initial stack.</P>
+Anschließend wird der Reverse Proxy als Stack über Portainer bereitgestellt. Er leitet eingehende Anfragen an die folgenden
+Dienste weiter. Die erste YAML-Datei dient dazu, diesen ersten Stack anzulegen.
